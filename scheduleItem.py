@@ -5,7 +5,7 @@
 # scheduleItem.py
 # Created at 2021-09-10 by Song Xue <songxue AT outlook-com>
 # Distributed under terms of the Apache license.
-# Last Change: Fri 09/10/2021, 10:14 PM.
+# Last Change: Wed 09/15/2021, 09:25 PM.
 
 import utils
 
@@ -22,7 +22,7 @@ class scheduleItem:
         end_time = begin_time.add(minutes=duration)
         self.content = content
 
-        if self.content in utils.flexible_items:
+        if self.content in utils.elastic_items:
             end_time = end_time.subtract(hours=0.15*utils.offset)
             end_time = end_time.subtract(minutes=end_time.minute%5)
 

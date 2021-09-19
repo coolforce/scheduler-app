@@ -5,7 +5,7 @@
 # schedule.py
 # Created at 2021-09-10 by Song Xue <songxue AT outlook-com>
 # Distributed under terms of the Apache license.
-# Last Change: Fri 09/10/2021, 10:36 PM.
+# Last Change: Sun 09/19/2021, 10:14 AM.
 
 import utils
 from scheduleItem import scheduleItem
@@ -35,6 +35,18 @@ class schedule:
 
 
     def __str__(self):
-        s = "\n".join([str(i) for i in self.items])
+        # s = "\n".join([str(i) for i in self.items])
+
+        s = "‏"
+
+        for i in self.items:
+            s += "\n"
+            if utils.current_time < i.end_time and utils.current_time > i.begin_time:
+                s += ">>> "
+            else:
+                s += "    "
+
+            s += str(i)
+
         return s
 
