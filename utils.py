@@ -5,14 +5,14 @@
 # utils.py
 # Created at 2021-09-10 by Song Xue <songxue AT outlook-com>
 # Distributed under terms of the Apache license.
-# Last Change: Sun 09/19/2021, 10:09 AM.
+# Last Change: Sun 09/19/2021, 10:32 AM.
 
 import pendulum
 from math import floor, sin, pi
 
 schedule_file = "assets/schedule"
 
-current_time = pendulum.now()
+current_time = pendulum.now('America/Toronto')
 date_now = current_time.format("MMMM Do, YYYY")
 time_now = current_time.format("h:mm A")
 doy = current_time.day_of_year
