@@ -5,9 +5,11 @@
 # scheduleItem.py
 # Created at 2021-09-10 by Song Xue <songxue AT outlook-com>
 # Distributed under terms of the Apache license.
-# Last Change: Wed 09/15/2021, 09:25 PM.
+# Last Change: Mon 09/20/2021, 03:59 AM.
 
 import utils
+
+utils = utils.utils()
 
 class scheduleItem:
 

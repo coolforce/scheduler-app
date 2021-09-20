@@ -5,16 +5,22 @@
 # schedule.py
 # Created at 2021-09-10 by Song Xue <songxue AT outlook-com>
 # Distributed under terms of the Apache license.
-# Last Change: Sun 09/19/2021, 10:14 AM.
+# Last Change: Mon 09/20/2021, 04:29 AM.
 
 import utils
 from scheduleItem import scheduleItem
+
+utils = utils.utils()
 
 class schedule:
 
     def __init__(self, schedule_file=utils.schedule_file):
 
-        cursor_time = utils.beginning_of_day
+        if utils.is_early:
+            cursor_time = utils.beginning_of_day.add(days=-1)
+        else:
+            cursor_time = utils.beginning_of_day
+
         schedule_items = []
 
         with open(schedule_file, 'r') as fin:
@@ -27,7 +33,11 @@ class schedule:
 
                 schedule_items.append(item)
 
-        sleep_length = utils.beginning_of_day.add(days=1) - cursor_time
+        if utils.is_early:
+            sleep_length = utils.beginning_of_day - cursor_time
+        else:
+            sleep_length = utils.beginning_of_day.add(days=1) - cursor_time
+
         last_text = "{:d}\tSleep".format(sleep_length.in_minutes())
         schedule_items.append(scheduleItem(cursor_time, last_text))
 
@@ -46,7 +56,7 @@ class schedule:
             else:
                 s += "    "
 
-            s += str(i)
+            s += str(i) + str(i.duration)
 
         return s
 
