@@ -5,7 +5,7 @@
 # schedule.py
 # Created at 2021-09-10 by Song Xue <songxue AT outlook-com>
 # Distributed under terms of the Apache license.
-# Last Change: Fri 10/01/2021, 03:24 AM.
+# Last Change: Sun 10/03/2021, 08:42 AM.
 
 import utils
 from scheduleItem import scheduleItem
@@ -14,7 +14,7 @@ utils = utils.utils()
 
 class schedule:
 
-    def __init__(self, schedule_file=utils.schedule_file):
+    def __init__(self, utils=utils):
 
         if utils.is_early:
             cursor_time = utils.beginning_of_day.add(days=-1)
@@ -23,7 +23,7 @@ class schedule:
 
         schedule_items = []
 
-        with open(schedule_file, 'r') as fin:
+        with open(utils.schedule_file, 'r') as fin:
 
             lines = fin.readlines()
 
