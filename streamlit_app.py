@@ -5,7 +5,7 @@
 # app.py
 # Created at 2021-09-10 by Song Xue <songxue AT outlook-com>
 # Distributed under terms of the Apache license.
-# Last Change: Fri 10/01/2021, 03:25 AM.
+# Last Change: Fri 10/08/2021, 06:57 AM.
 
 import schedule
 import streamlit as st
@@ -16,6 +16,6 @@ utils = utils.utils()
 st.title(utils.date_now)
 st.header(utils.time_now)
 
-sch = schedule.schedule()
+sch = schedule.schedule(utils)
 st.text(sch)
 
